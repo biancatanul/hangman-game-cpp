@@ -11,16 +11,18 @@ g++ hangman_host.cpp -o hangman_host
 
 ## How to Run
 
-**Play a game:**
+**Player app — play a game:**
 ```bash
-./hangman_player <username>
-./hangman_player <username> <words_file>
+./hangman_player play <username>
 ```
+The program will choose a random word, process letter guesses, and update the leaderboard and history.
 
-**Admin commands:**
+**Host app — admin commands:**
 ```bash
+./hangman_host view_words
+./hangman_host add_word <word>
+./hangman_host delete_word <word>
 ./hangman_host view_leaderboard
-./hangman_host view_history
 ./hangman_host view_history <username>
 ```
 
@@ -37,7 +39,7 @@ g++ hangman_host.cpp -o hangman_host
 | File | Role |
 |------|------|
 | `hangman_player.cpp` | Game logic, player interaction |
-| `hangman_host.cpp` | Admin: leaderboard & history viewer |
+| `hangman_host.cpp` | Admin: word list, leaderboard & history management |
 | `game.h` | Game class — word state, guessing logic |
 | `leaderboard.h` | Score read/write |
 | `history.h` | History read/write |
@@ -48,8 +50,8 @@ g++ hangman_host.cpp -o hangman_host
 
 ## Data Flow
 `hangman_player` updates `leaderboard.txt` and `history.txt` after each game.  
-`hangman_host` reads those same files to display results — no keyboard input used.
+`hangman_host` reads and modifies those same files — no keyboard input used.
 
 ## Authors
-- **Tanul Bianca** — host/admin side, word & player data management
-- **Preduț Alexia** — player side, game logic & score saving
+- **Tanul Bianca** — host app, word list & player data management
+- **Preduț Alexia** — player app, game logic & score saving
