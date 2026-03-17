@@ -55,3 +55,6 @@ The program will choose a random word, process letter guesses, and update the le
 ## Authors
 - **Tanul Bianca** — host app, word list & player data management
 - **Preduț Alexia** — player app, game logic & score saving
+
+## License
+This project is part of the Programming Project course at UVT (2024-2025).
